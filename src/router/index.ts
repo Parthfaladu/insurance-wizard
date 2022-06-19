@@ -1,20 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import IndexPage from "../views/IndexPage.vue";
+import FormWizard from "../views/FormWizard.vue";
+import AgeErrorPage from "../views/AgeErrorPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "indexPage",
+    component: IndexPage,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/step/:stepid",
+    name: "formWizard",
+    component: FormWizard,
+  },
+  {
+    path: "/age/error",
+    name: "ageErrorPage",
+    component: AgeErrorPage,
   },
 ];
 
@@ -23,4 +26,5 @@ const router = createRouter({
   routes,
 });
 
+export { routes };
 export default router;
